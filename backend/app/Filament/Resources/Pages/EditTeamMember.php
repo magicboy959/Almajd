@@ -1,0 +1,1 @@
+<?php namespace App\Filament\Resources\Pages; use App\Filament\Resources\TeamMemberResource; use Filament\Resources\Pages\EditRecord; class EditTeamMember extends EditRecord { protected static string $resource=TeamMemberResource::class; }

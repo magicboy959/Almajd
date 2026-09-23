@@ -1,0 +1,1 @@
+<?php namespace App\Filament\Resources\Pages; use App\Filament\Resources\QuotationResource; use Filament\Resources\Pages\ListRecords; class ListQuotations extends ListRecords { protected static string $resource=QuotationResource::class; }

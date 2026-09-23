@@ -1,0 +1,6 @@
+<?php
+namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
+class ServiceRequest extends Model { use SoftDeletes; protected $fillable=['reference','customer_id','service_id','full_name','mobile','email','nationality','emirates_id','preferred_language','preferred_communication','details','status','consent_at']; protected $casts=['consent_at'=>'boolean']; protected static function booted(){static::creating(function(self $request){$request->status ??= 'new'; if(!$request->reference){$year=now()->year; $request->reference='QM-'.$year.'-'.str_pad((string)((self::whereYear('created_at',$year)->withTrashed()->count())+1),6,'0',STR_PAD_LEFT);}}); static::created(function(self $request){$request->statusHistories()->create(['new_status'=>$request->status]);});} public function customer(){return $this->belongsTo(Customer::class);} public function service(){return $this->belongsTo(Service::class);} public function statusHistories(){return $this->hasMany(RequestStatusHistory::class);} public function documents(){return $this->hasMany(RequestDocument::class);} public function messages(){return $this->hasMany(RequestMessage::class);} public function latestStatus(){return $this->hasOne(RequestStatusHistory::class)->latestOfMany();} }

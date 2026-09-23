@@ -1,0 +1,1 @@
+<?php namespace App\Filament\Resources\Pages; use App\Filament\Resources\RequestMessageResource; use Filament\Resources\Pages\ListRecords; class ListRequestMessages extends ListRecords { protected static string $resource=RequestMessageResource::class; }

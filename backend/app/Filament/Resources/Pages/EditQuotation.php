@@ -1,0 +1,1 @@
+<?php namespace App\Filament\Resources\Pages; use App\Filament\Resources\QuotationResource; use Filament\Resources\Pages\EditRecord; class EditQuotation extends EditRecord { protected static string $resource=QuotationResource::class; protected function afterSave():void{$this->record->load('items')->recalculate();$this->record->saveQuietly();} }

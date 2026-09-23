@@ -1,0 +1,1 @@
+<?php namespace App\Filament\Resources\Pages; use App\Filament\Resources\RequestMessageResource; use Filament\Resources\Pages\EditRecord; class EditRequestMessage extends EditRecord { protected static string $resource=RequestMessageResource::class; }

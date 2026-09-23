@@ -1,0 +1,1 @@
+<?php namespace App\Filament\Resources\Pages; use App\Filament\Resources\RequestDocumentResource; use Filament\Resources\Pages\ViewRecord; class ViewRequestDocument extends ViewRecord { protected static string $resource=RequestDocumentResource::class; }

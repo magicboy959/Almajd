@@ -1,0 +1,1 @@
+<?php namespace App\Filament\Resources\Pages; use App\Filament\Resources\RequestDocumentResource; use Filament\Resources\Pages\EditRecord; class EditRequestDocument extends EditRecord { protected static string $resource=RequestDocumentResource::class; }

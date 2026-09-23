@@ -1,0 +1,26 @@
+# Environment and secrets
+.env
+backend/.env
+
+# Dependencies
+node_modules/
+backend/vendor/
+
+# Framework/build output
+.next/
+out/
+backend/bootstrap/cache/*.php
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/storage/logs/*.log
+
+# Local database and test artifacts
+backend/database/database.sqlite
+backend/.phpunit.result.cache
+
+# OS/editor files
+.DS_Store
+.vscode/
+*.swp
+tsconfig.tsbuildinfo

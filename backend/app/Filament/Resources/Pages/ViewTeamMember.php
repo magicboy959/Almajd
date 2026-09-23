@@ -1,0 +1,1 @@
+<?php namespace App\Filament\Resources\Pages; use App\Filament\Resources\TeamMemberResource; use Filament\Resources\Pages\ViewRecord; class ViewTeamMember extends ViewRecord { protected static string $resource=TeamMemberResource::class; }

@@ -1,0 +1,4 @@
+<?php
+namespace App\Providers;
+use App\Models\ContactEnquiry; use App\Models\Faq; use App\Models\Invoice; use App\Models\Page; use App\Models\Payment; use App\Models\Quotation; use App\Models\RequestDocument; use App\Models\RequestMessage; use App\Models\Setting; use App\Models\TeamMember; use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider; use App\Policies\FinancialPolicy; use App\Policies\ManagementPolicy;
+class AuthServiceProvider extends ServiceProvider { protected $policies=[Quotation::class=>FinancialPolicy::class,Invoice::class=>FinancialPolicy::class,Payment::class=>FinancialPolicy::class,Faq::class=>ManagementPolicy::class,TeamMember::class=>ManagementPolicy::class,Page::class=>ManagementPolicy::class,Setting::class=>ManagementPolicy::class,RequestDocument::class=>ManagementPolicy::class,RequestMessage::class=>ManagementPolicy::class,ContactEnquiry::class=>ManagementPolicy::class]; public function boot():void{} }

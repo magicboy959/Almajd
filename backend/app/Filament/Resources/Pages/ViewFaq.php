@@ -1,0 +1,1 @@
+<?php namespace App\Filament\Resources\Pages; use App\Filament\Resources\FaqResource; use Filament\Resources\Pages\ViewRecord; class ViewFaq extends ViewRecord { protected static string $resource=FaqResource::class; }

@@ -1,0 +1,1 @@
+<?php namespace App\Filament\Resources\Pages; use App\Filament\Resources\ContactEnquiryResource; use Filament\Resources\Pages\EditRecord; class EditContactEnquiry extends EditRecord { protected static string $resource=ContactEnquiryResource::class; }
