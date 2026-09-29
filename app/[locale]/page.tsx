@@ -5,22 +5,49 @@ import Image from 'next/image';
 import { ArrowUpRight, BriefcaseBusiness, Building2, Check, ChevronRight, FileText, Gavel, Globe2, Landmark, MessageCircle, Phone, Search, ShieldCheck, Siren, WalletCards } from 'lucide-react';
 
 const authorities = [
-  { name: 'Abu Dhabi Civil Defence Authority', image: '/images/partners/abu-dhabi-civil-defence-authority.jpg' },
-  { name: 'Federal Authority for Identity, Citizenship, Customs & Port Security', image: '/images/partners/federal-authority-identity-citizenship-customs-port-security.jpg' },
-  { name: 'Abu Dhabi Department of Municipalities and Transport', image: '/images/partners/abu-dhabi-department-municipalities-transport.jpg' },
-  { name: 'Abu Dhabi Judicial Department', image: '/images/partners/abu-dhabi-judicial-department.png' },
-  { name: 'Ministry of Human Resources and Emiratisation', image: '/images/partners/ministry-of-human-resources-emiratisation.jpg' },
-  { name: 'TAMM Abu Dhabi Government Services', image: '/images/partners/tamm-abu-dhabi-government-services.png' },
-  { name: 'Abu Dhabi Police', image: '/images/partners/abu-dhabi-police.png' },
-  { name: 'Abu Dhabi Department of Economic Development', image: '/images/partners/abu-dhabi-department-economic-development.png' },
-  { name: 'Ministry of Justice', image: '/images/partners/ministry-of-justice.png' },
-  { name: 'Dubai Public Prosecution', image: '/images/partners/dubai-public-prosecution.jpg' },
-  { name: 'Q Mobility', image: '/images/partners/q-mobility.svg' },
-  { name: 'Ministry of Interior', image: '/images/partners/ministry-of-interior.jpg' },
-  { name: 'Abu Dhabi Department of Health', image: '/images/partners/abu-dhabi-department-health.png' },
-  { name: 'Dubai Courts', image: '/images/partners/dubai-courts.jpg' },
-  { name: 'Abu Dhabi Mobility', image: '/images/partners/abu-dhabi-mobility.jpg' },
-  { name: 'General Directorate of Residency and Foreigners Affairs Dubai', image: '/images/partners/gdrfa-dubai.png' },
+  { name: 'TAMM Abu Dhabi Government Services', image: '/images/partners/tamm-abu-dhabi-government-services.png', category: 'government' },
+  { name: 'UAE PASS', image: '/images/partners/uae-pass.png', category: 'identity' },
+  { name: 'Emirates Identity Authority', image: '/images/partners/emirates-identity-authority.png', category: 'identity' },
+  { name: 'Federal Authority for Identity, Citizenship, Customs & Port Security', image: '/images/partners/federal-authority-identity-citizenship-customs-port-security.jpg', category: 'identity' },
+  { name: 'General Directorate of Residency and Foreigners Affairs Dubai', image: '/images/partners/gdrfa-dubai.png', category: 'identity' },
+  { name: 'Abu Dhabi Judicial Department', image: '/images/partners/abu-dhabi-judicial-department.png', category: 'legal' },
+  { name: 'Ministry of Justice', image: '/images/partners/ministry-of-justice.png', category: 'legal' },
+  { name: 'Dubai Public Prosecution', image: '/images/partners/dubai-public-prosecution.jpg', category: 'legal' },
+  { name: 'Dubai Courts', image: '/images/partners/dubai-courts.jpg', category: 'legal' },
+  { name: 'Abu Dhabi Mobility', image: '/images/partners/abu-dhabi-mobility.jpg', category: 'transport' },
+  { name: 'Q Mobility', image: '/images/partners/q-mobility.svg', category: 'transport' },
+  { name: 'DARB', image: '/images/partners/darb.png', category: 'transport' },
+  { name: 'MAWAQiF', image: '/images/partners/mawaqif.png', category: 'transport' },
+  { name: 'Salik', image: '/images/partners/salik.jpg', category: 'transport' },
+  { name: 'Abu Dhabi Department of Municipalities and Transport', image: '/images/partners/abu-dhabi-department-municipalities-transport.jpg', category: 'transport' },
+  { name: 'Ministry of Human Resources and Emiratisation', image: '/images/partners/ministry-of-human-resources-emiratisation.jpg', category: 'business' },
+  { name: 'Tasheel', image: '/images/partners/tasheel.png', category: 'business' },
+  { name: 'Tadbeer', image: '/images/partners/tadbeer.jpg', category: 'business' },
+  { name: 'Tawjeeh', image: '/images/partners/tawjeeh.webp', category: 'business' },
+  { name: 'Tawtheeq', image: '/images/partners/tawtheeq.png', category: 'business' },
+  { name: 'Federal Tax Authority', image: '/images/partners/federal-tax-authority.jpg', category: 'business' },
+  { name: 'Abu Dhabi Department of Economic Development', image: '/images/partners/abu-dhabi-department-economic-development.png', category: 'business' },
+  { name: 'Abu Dhabi Police', image: '/images/partners/abu-dhabi-police.png', category: 'publicSafety' },
+  { name: 'Ministry of Interior', image: '/images/partners/ministry-of-interior.jpg', category: 'publicSafety' },
+  { name: 'Abu Dhabi Civil Defence Authority', image: '/images/partners/abu-dhabi-civil-defence-authority.jpg', category: 'publicSafety' },
+  { name: 'Abu Dhabi Department of Health', image: '/images/partners/abu-dhabi-department-health.png', category: 'publicSafety' },
+];
+
+const authorityCategories = [
+  { key: 'identity', en: 'Identity & immigration', ar: 'الهوية والإقامة' },
+  { key: 'legal', en: 'Courts & legal', ar: 'المحاكم والخدمات القانونية' },
+  { key: 'transport', en: 'Traffic, parking & transport', ar: 'المرور والمواقف والنقل' },
+  { key: 'business', en: 'Business, labor & tenancy', ar: 'الأعمال والعمل والتوثيق' },
+  { key: 'publicSafety', en: 'Public safety & health', ar: 'السلامة والصحة' },
+  { key: 'government', en: 'Government platforms', ar: 'المنصات الحكومية' },
+];
+
+const teamImages = [
+  { image: '/images/team/team-portrait-01.jpeg', altEn: 'Qemmat Al Majd team member in the office', altAr: 'أحد أعضاء فريق قمة المجد في المكتب', roleEn: 'Client Services Lead', roleAr: 'مسؤول خدمات العملاء' },
+  { image: '/images/team/team-portrait-03.jpeg', altEn: 'Qemmat Al Majd team member portrait', altAr: 'صورة لأحد أعضاء فريق قمة المجد', roleEn: 'Government Transactions Specialist', roleAr: 'أخصائي المعاملات الحكومية' },
+  { image: '/images/team/team-portrait-06.jpeg', altEn: 'Qemmat Al Majd team member at a desk', altAr: 'أحد أعضاء فريق قمة المجد على مكتبه', roleEn: 'Document Preparation Specialist', roleAr: 'أخصائي تجهيز المستندات' },
+  { image: '/images/team/team-portrait-04.jpeg', altEn: 'Qemmat Al Majd team member working in the office', altAr: 'أحد أعضاء فريق قمة المجد أثناء العمل في المكتب', roleEn: 'Legal Coordination Support', roleAr: 'دعم التنسيق القانوني' },
+  { image: '/images/team/team-portrait-02.jpeg', altEn: 'Qemmat Al Majd team member executive portrait', altAr: 'صورة إدارية لأحد أعضاء فريق قمة المجد', roleEn: 'Business Services Advisor', roleAr: 'مستشار خدمات الأعمال' },
 ];
 
 const content = {
@@ -48,6 +75,12 @@ export default function Home({ params }: { params: { locale: string } }) {
   const [reference, setReference] = useState('');
   const [message, setMessage] = useState('');
   const whatsappHref = 'https://wa.me/971566579033';
+  const teamCopy = lang === 'ar'
+    ? { eyebrow: 'فريقنا', title: 'فريق عملي يعرف تفاصيل الإجراءات.', text: 'صور من فريق قمة المجد ومكتبنا، حيث نتابع الطلبات ونجهز المعاملات بعناية.' }
+    : { eyebrow: 'Our team', title: 'A practical team that understands the details.', text: 'A look at the Qemmat Al Majd team and office, where requests are prepared and followed through with care.' };
+  const authoritySections = authorityCategories
+    .map((category) => ({ ...category, items: authorities.filter((authority) => authority.category === category.key) }))
+    .filter((category) => category.items.length > 0);
 
   function trackRequest() { setMessage(reference.trim() ? `We found your request ${reference.trim()}. A secure tracking view will be available after API connection.` : t.tracking); }
 
@@ -59,8 +92,9 @@ export default function Home({ params }: { params: { locale: string } }) {
     </section>
 
     <section className="section light-section" id="services"><div className="container"><div className="section-heading"><div className="eyebrow">{t.serviceEyebrow}</div><h2>{t.serviceTitle}</h2><p>{t.serviceText}</p></div><div className="category-grid">{t.categories.map(({ icon: Icon, title, text }) => <article className="category" key={title}><div><div className="category-icon"><Icon size={20} strokeWidth={1.5} /></div><h3>{title}</h3><p>{text}</p></div><a href="#contact">{t.viewAll}<ChevronRight size={14} /></a></article>)}</div></div></section>
-    <section className="section authorities-section"><div className="container"><div className="section-heading"><div className="eyebrow">{t.authorityEyebrow}</div><h2>{t.authorityTitle}</h2><p>{t.authorityText}</p></div><ul className="authority-grid">{authorities.map(({ name, image }) => <li className="authority-logo" key={image}><Image src={image} alt={name} width={220} height={100} sizes="(max-width: 520px) 44vw, (max-width: 820px) 28vw, 15vw" /></li>)}</ul></div></section>
+    <section className="section authorities-section"><div className="container"><div className="section-heading"><div className="eyebrow">{t.authorityEyebrow}</div><h2>{t.authorityTitle}</h2><p>{t.authorityText}</p></div><div className="authority-groups">{authoritySections.map((category) => <section className="authority-group" key={category.key}><h3>{lang === 'ar' ? category.ar : category.en}</h3><ul className="authority-grid">{category.items.map(({ name, image }) => <li className="authority-logo" key={image}><Image src={image} alt={name} width={220} height={100} sizes="(max-width: 520px) 44vw, (max-width: 820px) 28vw, 15vw" /><span>{name}</span></li>)}</ul></section>)}</div></div></section>
     <section className="section" id="about"><div className="container split"><div className="about-intro"><div className="section-heading"><div className="eyebrow">{t.whyEyebrow}</div><h2>{t.whyTitle}</h2></div><Image className="team-photo" src="/images/team/team-portrait-01.jpeg" alt={t.label === 'English' ? 'Qemmat Al Majd team member in the office' : 'أحد أعضاء فريق قمة المجد في المكتب'} width={922} height={1152} sizes="(max-width: 820px) 100vw, 36vw" /></div><div className="list">{t.reasons.map((reason, index) => <div className="list-item" key={reason.title}><span className="list-number">0{index + 1}</span><div><h3>{reason.title}</h3><p>{reason.text}</p></div></div>)}</div></div></section>
+    <section className="section light-section team-section"><div className="container"><div className="section-heading"><div className="eyebrow">{teamCopy.eyebrow}</div><h2>{teamCopy.title}</h2><p>{teamCopy.text}</p></div><div className="team-grid">{teamImages.map(({ image, altEn, altAr, roleEn, roleAr }) => <figure className="team-card" key={image}><Image src={image} alt={lang === 'ar' ? altAr : altEn} width={922} height={1152} sizes="(max-width: 520px) 100vw, (max-width: 920px) 50vw, 33vw" /><figcaption><span>{lang === 'ar' ? roleAr : roleEn}</span></figcaption></figure>)}</div></div></section>
     <section className="section light-section" id="process"><div className="container"><div className="section-heading"><div className="eyebrow">{t.stepsEyebrow}</div><h2>{t.stepsTitle}</h2></div><div className="category-grid">{t.steps.map(([number, title, text]) => <article className="category" key={number}><div className="eyebrow">{number}</div><div><h3>{title}</h3><p>{text}</p></div><Check size={18} color="var(--gold)" /></article>)}</div></div></section>
     <section className="section container"><div className="quote"><div className="eyebrow">{t.request}</div><h2>{t.quoteTitle}</h2><p>{t.quoteText}</p><div className="actions"><a className="btn btn-primary" href="#contact">{t.start}<ArrowUpRight size={16} /></a><a className="btn btn-outline" href={whatsappHref} target="_blank">{t.whatsapp}<MessageCircle size={16} /></a></div></div></section>
     <section className="section contact" id="contact"><div className="container"><div className="section-heading"><div className="eyebrow">{t.contactEyebrow}</div><h2>{t.contactTitle}</h2><p>{t.contactText}</p></div><div className="contact-content"><div className="contact-row"><a className="contact-link" href={whatsappHref} target="_blank" rel="noreferrer"><MessageCircle size={18} /><span><small>{t.whatsappLabel}</small><strong>+971 56 657 9033</strong></span></a><a className="contact-link" href="tel:+971589271774"><Phone size={18} /><span><small>{t.phoneLabel}</small><strong>+971 58 927 1774</strong></span></a><a className="contact-link" href="tel:+97124469035"><Building2 size={18} /><span><small>{t.officeLabel}</small><strong>+971 2 446 9035</strong></span></a><a className="contact-link" href="mailto:hello@qemmat-almajd.ae"><FileText size={18} /><span><small>Email</small><strong>hello@qemmat-almajd.ae</strong></span></a></div><div className="contact-map"><h3>{t.mapTitle}</h3><iframe title={t.mapTitle} src="https://www.google.com/maps?q=CFF2%2B9XJ+Abu+Dhabi,+United+Arab+Emirates&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div></div></div></section>
