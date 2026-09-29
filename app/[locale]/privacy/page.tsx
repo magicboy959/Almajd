@@ -33,6 +33,17 @@ const policy = {
   },
 } as const;
 
+export function generateMetadata({ params }: { params: { locale: string } }) {
+  const lang = params.locale === 'ar' ? 'ar' : 'en';
+
+  return {
+    title: lang === 'ar' ? 'سياسة الخصوصية | قمة المجد' : 'Privacy Policy | Qemmat Al Majd',
+    description: lang === 'ar'
+      ? 'سياسة الخصوصية لقمة المجد لخدمات رجال الأعمال وكيفية التعامل مع بيانات العملاء والمستندات.'
+      : 'Privacy policy for Qemmat Al Majd Business Services and how customer information and documents are handled.',
+  };
+}
+
 export default function PrivacyPage({ params }: { params: { locale: string } }) {
   const lang = params.locale === 'ar' ? 'ar' : 'en';
   const t = policy[lang];

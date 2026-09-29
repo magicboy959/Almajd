@@ -51,6 +51,7 @@ button { cursor: pointer; }
 .category-icon { width: 42px; height: 42px; display: grid; place-items: center; color: var(--gold); background: #fbf8ef; }
 .category h3 { color: var(--navy); font-size: 18px; margin: 18px 0 7px; }
 .category p { color: var(--muted); font-size: 13px; line-height: 1.5; margin: 0; }
+.category-hint { margin-top: 13px !important; padding-top: 13px; border-top: 1px solid var(--line); color: #475467 !important; }
 .category a { display: flex; align-items: center; gap: 7px; color: var(--gold); font-size: 12px; font-weight: 700; margin-top: 21px; }
 .authorities-section { background: var(--paper); }
 .authority-groups { display: grid; gap: 26px; }
@@ -88,6 +89,10 @@ button { cursor: pointer; }
 .contact { color: white; background: var(--ink); }
 .contact .section-heading h2 { color: white; }
 .contact .section-heading p { color: rgba(255,255,255,.62); }
+.contact-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: -18px 0 28px; }
+.contact-fact { min-width: 0; padding: 16px 18px; border: 1px solid rgba(255,255,255,.14); border-radius: 8px; background: rgba(255,255,255,.05); }
+.contact-fact small { display: block; margin-bottom: 8px; color: var(--warm-gold); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.contact-fact strong { display: block; color: rgba(255,255,255,.84); font-size: 13px; font-weight: 500; line-height: 1.55; }
 .contact-content { display: grid; grid-template-columns: .8fr 1.2fr; gap: 24px; align-items: stretch; }
 .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .contact-link { display: flex; align-items: center; gap: 11px; min-width: 0; padding: 15px 17px; border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.8); font-size: 13px; }
@@ -112,5 +117,5 @@ button { cursor: pointer; }
 .legal-section { padding: 26px; border: 1px solid var(--line); border-radius: 8px; background: white; }
 .legal-section h2 { margin: 0 0 11px; color: var(--navy); font-size: 21px; letter-spacing: -.02em; }
 .legal-section p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
-@media (max-width: 820px) { .container { width: min(100% - 30px, 620px); } .nav a:not(.lang) { display: none; } .hero-content, .split, .contact-content { grid-template-columns: 1fr; gap: 34px; } .hero-content { padding-top: 58px; } .hero-panel { max-width: 510px; } .category-grid { grid-template-columns: 1fr 1fr; } .authority-grid { grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); } .authority-logo { padding: 15px; } .team-photo { max-width: 100%; } .team-grid { grid-template-columns: 1fr 1fr; } .team-card:nth-child(n) { grid-column: auto; } .section { padding: 66px 0; } .team-section { padding-top: 0; } .footer-row { flex-direction: column; } }
+@media (max-width: 820px) { .container { width: min(100% - 30px, 620px); } .nav a:not(.lang) { display: none; } .hero-content, .split, .contact-content { grid-template-columns: 1fr; gap: 34px; } .hero-content { padding-top: 58px; } .hero-panel { max-width: 510px; } .category-grid { grid-template-columns: 1fr 1fr; } .authority-grid { grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); } .authority-logo { padding: 15px; } .team-photo { max-width: 100%; } .team-grid { grid-template-columns: 1fr 1fr; } .team-card:nth-child(n) { grid-column: auto; } .contact-facts { grid-template-columns: 1fr; margin-top: -10px; } .section { padding: 66px 0; } .team-section { padding-top: 0; } .footer-row { flex-direction: column; } }
 @media (max-width: 520px) { .category-grid { grid-template-columns: 1fr; } .authority-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .authority-logo { padding: 12px; aspect-ratio: 1.45; } .authority-logo img { max-height: 62px; } .team-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 46px; } .stat-strip { gap: 10px; } .stat strong { font-size: 20px; } .quote { padding: 28px; } .legal-hero { padding: 48px 0 40px; } .legal-section { padding: 21px; } .mobile-bar { position: fixed; z-index: 4; display: flex; right: 0; bottom: 0; left: 0; justify-content: center; padding: 9px; background: rgba(6,24,39,.96); } .mobile-bar .btn { width: 100%; } }
